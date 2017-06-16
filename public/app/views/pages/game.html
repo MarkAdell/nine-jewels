@@ -1,0 +1,38 @@
+<section class="game-screen"> 
+
+  <h1 class="title">NINE JEWELS</h1>
+
+  <div class="leaderboard">
+    <h4>Leaderboard</h4>
+    <table>
+      <thead>
+      <tr>
+        <th>Rank</th>
+        <th>Username</th>
+        <th>Solved</th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>#1</td>
+          <td>mark</td>
+          <td>5</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="description">
+    <h3>
+      Order the nine shuffled letters word. 
+    </h3>
+  </div>
+
+  <form class="play-form">
+    <h1 class="shuffled">jellyfish</h1>
+    <input type="text" name="" placeholder="answer">
+    <button ng-click="vm.submitWord()" type="submit" class="my-button">Submit</button>
+    <button ng-click="vm.getAnotherWord()" type="submit" class="my-button">Another Word</button>
+  </form>
+
+</section>

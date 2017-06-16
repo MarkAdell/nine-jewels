@@ -1,0 +1,137 @@
+/* Reset */
+
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,
+form,fieldset,input,textarea,p,blockquote,th,td {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: #3e3e3e;
+}
+
+/* Home Page */
+
+.home-screen {
+  text-align: center;
+}
+
+.title {
+  color: #fff;
+  font-size: 100px;
+  font-family: 'Oswald', Times, serif;
+  padding-top: 30px;
+  letter-spacing: 10px;
+  text-shadow: 3px 3px 20px #000;
+}
+
+.leaderboard {
+  width: 18%;
+  position: fixed;
+  top: 50px;
+  right: 50px;
+  border-radius: 10px;
+  box-shadow: 3px 3px 20px #000;
+  background-color: #74edaf;
+}
+
+.leaderboard table {
+  margin: auto;
+}
+
+.leaderboard td, th {
+  padding: 10px;
+}
+
+.leaderboard h4 {
+  color: #000;
+  padding-top: 10px;
+}
+
+.play-form {
+  width: 30%;
+  padding: 30px;
+  margin: 200px auto;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 3px 3px 20px #000;
+  background-color: #74edaf;
+}
+
+.home-screen .play-form {
+  width: 20%;
+}
+
+.play-form input[type=text] {
+  padding: 7px;
+  display: block;
+  margin: 0 auto;
+  border-radius: 10px;
+  font-size: 18px;
+  width: 80%;
+  outline: none;
+  text-align: center;
+}
+
+.play-form .shuffled {
+  padding: 10px 0 25px;
+  letter-spacing: 10px;
+  font-family: 'Oswald', Times, serif;
+  text-transform: uppercase;
+}
+
+.my-button {
+  margin-top: 15px;
+  outline: none;
+  background-color: #fff;
+  padding: 5px 20px;
+  border-radius: 10px;
+}
+
+
+/* Game Page */
+  
+.game-screen {
+  text-align: center;
+}
+
+.game-screen .description h3 {
+  text-align: center;
+  padding-top: 50px;
+  color: #fff;
+  font-size: 30px;
+}
+
+
+@media (max-width: 768px) {
+  .play-form,
+  .home-screen .play-form {
+    width: 90%;
+    margin-top: 100px;
+  }
+  .title {
+    font-size: 70px;
+  }
+  .home-screen .leaderboard {
+    width: 60%;
+    top: auto;
+    right: auto;
+    bottom: 10px;
+    left: 80px;
+  }
+  .game-screen .leaderboard {
+    display: none;
+  }
+}
+
+
+/* Invalid Page */
+
+.invalid-wrapper h2 {
+  margin-top: 80px;
+}
+
+.invalid-wrapper h3,
+.invalid-wrapper h4 {
+  margin-top: 50px;
+}
