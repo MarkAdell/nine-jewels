@@ -1,7 +1,7 @@
-var express     = require('express');
-var bodyParser  = require('body-parser');
-var cors        = require('cors');
-var morgan      = require('morgan');
+var express = require('express');
+var bodyParser = require('body-parser');
+var cors = require('cors');
+var morgan = require('morgan');
 var compression = require('compression')
 
 module.exports = function(app) {
