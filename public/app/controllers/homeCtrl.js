@@ -1,5 +1,5 @@
 angular.module('nineJewelsApp')
-  .controller('homeCtrl', function(userService, $state) {
+  .controller('homeCtrl', function(userService, gameService, $state) {
 
     var vm = this;
 
@@ -8,6 +8,8 @@ angular.module('nineJewelsApp')
     if(userId) {
       getUserName();
     }
+
+    getScoreBoard();
 
     vm.startGame = function() {
       if(!userId) {
@@ -22,6 +24,22 @@ angular.module('nineJewelsApp')
         .then(function(res) { 
           if(res.data.success) {
             vm.username = res.data.userName.userName;
+          } else {
+            console.log(res.data.message);
+          }
+        });
+    }
+
+    function getScoreBoard() {
+      gameService.getScoreBoard()
+        .then(function(res) {
+          if(res.data.success) {
+            vm.scoreBoard = [];
+            res.data.users.forEach(function(user) {
+              if(user.userName.length) {
+                vm.scoreBoard.push(user);
+              }
+            });
           } else {
             console.log(res.data.message);
           }
@@ -50,6 +68,5 @@ angular.module('nineJewelsApp')
           }
         });
     }
-
 
   });

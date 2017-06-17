@@ -51,7 +51,7 @@ body {
 .play-form {
   width: 30%;
   padding: 30px;
-  margin: 200px auto;
+  margin: 200px auto 100px;
   text-align: center;
   border-radius: 10px;
   box-shadow: 3px 3px 20px #000;
@@ -102,6 +102,12 @@ body {
   font-size: 30px;
 }
 
+.game-screen .play-form {
+  margin-top: 130px;
+}
+
+
+/* Media Queries */
 
 @media (max-width: 768px) {
   .play-form,
@@ -122,6 +128,12 @@ body {
   .game-screen .leaderboard {
     display: none;
   }
+}
+
+/* General */
+
+.flash {
+  color: #fff;
 }
 
 

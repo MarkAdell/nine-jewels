@@ -17,6 +17,10 @@ angular.module('nineJewelsApp')
       return $http.put('/api/users/', {userName: userName, userId, userId})
     }
 
+    function updateUserScore(userId) {
+      return $http.put('/api/users/score/', {userId: userId});
+    }
+
     function getUserName(userId) {
       return $http.get('/api/users/' + userId);
     }
@@ -26,7 +30,8 @@ angular.module('nineJewelsApp')
       saveIdToLocal: saveIdToLocal,
       addUser: addUser,
       updateUserName: updateUserName,
-      getUserName: getUserName
+      getUserName: getUserName,
+      updateUserScore: updateUserScore
     };
     
   });

@@ -13,10 +13,10 @@
       </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>#1</td>
-          <td>mark</td>
-          <td>5</td>
+        <tr ng-repeat="user in vm.scoreBoard">
+          <td>#{{$index}}</td>
+          <td>{{user.userName}}</td>
+          <td>{{user.solvedJewels}}</td>
         </tr>
       </tbody>
     </table>
