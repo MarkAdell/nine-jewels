@@ -3,39 +3,56 @@ angular.module('nineJewelsApp')
 
     var vm = this;
 
-    
-    var words = [];
-    var randomWord = "";
+    var loadedWord;
 
     var userId = userService.getIdFromLocal();
 
-    getWords();
+    getRandomWord();
     getScoreBoard();
 
     vm.submitWord = function() {
-      var userAnswer = vm.userAnswer.toLowerCase();
-      var correctAnswer = randomWord.word.toLowerCase();
-      if(userAnswer === correctAnswer) {
-        vm.userAnswer = '';
-        flash('Correct!');
-        updateUserScore(userId);
-        pickARandomWord();
-        getScoreBoard();
-      } else {
-        flash('Wrong!');
-      }
+      var userAnswer = vm.userAnswer;
+      var wordId = loadedWord.id;
+      checkSolution(userAnswer, wordId);
+    }
+
+    function checkSolution(userAnswer, wordId) {
+      gameService.checkSolution(userAnswer, wordId)
+        .then(function(res) {
+          if(res.data.success) {
+            if(res.data.correct) {
+              handleCorrectSolution();
+            } else {
+              handleWrongSolution();
+            }
+          } else {
+            console.log(res.data.message);
+          }
+      }); 
+    }
+
+    function handleCorrectSolution() {
+      flash('Correct!');
+      updateUserScore(userId);
+      getRandomWord();
+      getScoreBoard();
+    }
+
+    function handleWrongSolution() {
+      flash('Wrong!');
     }
 
     vm.getAnotherWord = function() {
-      pickARandomWord();
+      getRandomWord();
     }
 
-    function getWords() {
-      gameService.getWords()
+    function getRandomWord() {
+      vm.userAnswer = '';
+      gameService.getRandomWord()
         .then(function(res) {
           if(res.data.success) {
-            words = res.data.words;
-            pickARandomWord();
+            loadedWord = res.data.word;
+            vm.shuffledWord = loadedWord.shuffledWord;
           } else {
             console.log(res.data.message);
           }
@@ -67,22 +84,11 @@ angular.module('nineJewelsApp')
         });
     }
 
-    function pickARandomWord() {
-      var numberOfWords = words.length;
-      var randomIndex = Math.floor((Math.random() * numberOfWords));
-      randomWord = words[randomIndex];
-      vm.shuffledWord = randomWord.shuffledWord;
-    }
-
     function flash(message) {
       vm.status = message;
       $timeout(function() {
         vm.status = '';
       }, 1500);
     }
-
-
-
-
 
   });

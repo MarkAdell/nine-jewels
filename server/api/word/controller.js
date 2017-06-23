@@ -1,15 +1,47 @@
 var Words = require('./model');
 
-function getAllWords(req, res) {
+function getWord(req, res) {
   Words.find({}, function(err, words) {
     if(err) {
       res.json({success: false, message: err});
     } else {
-      res.json({success: true, words: words});
+      var randomWord = getRandonWord(words);
+      res.json({success: true, word: randomWord});
     }
   });
 }
 
+function checkSolution(req, res) {
+  var wordId = req.query.id;
+  var userAnswer = req.query.answer;
+  var query = {_id: wordId};
+  Words.findOne(query, function(err, word) {
+    if(err) {
+      res.json({success: false, message: err});
+    } else {
+      var word = word.toObject();
+      if(userAnswer.toLowerCase() === word.unshuffledWord.toLowerCase()) {
+        res.json({success: true, correct: true});
+      } else {
+        res.json({success: true, correct: false});
+      }
+    }
+  });
+}
+
+function getRandonWord(words) {
+  var length = words.length;
+  var randomIndex = Math.floor(Math.random() * length);
+  var randomWord = words[randomIndex];
+  var returnedWord = {
+    id: randomWord._id,
+    shuffledWord: randomWord.shuffledWord
+  }
+  return returnedWord;
+}
+
+
 module.exports = {
-  getAllWords: getAllWords
+  getWord: getWord,
+  checkSolution: checkSolution
 }

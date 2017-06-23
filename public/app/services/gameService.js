@@ -5,13 +5,18 @@ angular.module('nineJewelsApp')
       return $http.get('api/users');
     }
 
-    function getWords() {
+    function getRandomWord() {
       return $http.get('api/words/');
+    }
+
+    function checkSolution(userAnswer, wordId) {
+      return $http.get('api/words/check?answer='+userAnswer+'&id='+wordId);
     }
 
     return {
       getScoreBoard: getScoreBoard,
-      getWords: getWords
+      getRandomWord: getRandomWord,
+      checkSolution: checkSolution
     }
     
   });
