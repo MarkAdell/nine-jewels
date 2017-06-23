@@ -5,6 +5,10 @@ angular
   .run(function($rootScope, $state, $stateParams) {
     $rootScope.$state = $state;
     $rootScope.$stateParams = $stateParams;
+    $rootScope.$on('$locationChangeStart', function() {
+      ga('set', 'page', $location.path());
+      ga('send', 'pageview');
+    });
   })
   .config(function($stateProvider, $locationProvider, $urlRouterProvider) {
 
