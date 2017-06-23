@@ -8,7 +8,7 @@
       <thead>
       <tr>
         <th>Rank</th>
-        <th>Username</th>
+        <th>User</th>
         <th>Solved</th>
       </tr>
       </thead>
@@ -28,14 +28,13 @@
     </h3>
   </div>
 
+  <h3 class="flash" ng-class="{'flashColor': vm.flashVisible}">{{vm.status}}</h3>
+
   <form class="play-form">
     <h1 class="shuffled">{{vm.shuffledWord}}</h1>
-    <input type="text" ng-model="vm.userAnswer" placeholder="answer">
+    <input type="text" ng-model="vm.userAnswer" placeholder="answer" maxlength="9">
     <button ng-click="vm.submitWord()" type="submit" class="my-button">Submit</button>
     <button ng-click="vm.getAnotherWord()" type="submit" class="my-button">Another Word</button>
   </form>
-
-  <h3 class="flash">{{vm.status}}</h3>
-
 
 </section>

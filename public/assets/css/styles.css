@@ -10,6 +10,10 @@ body {
   background-color: #3e3e3e;
 }
 
+/* Imports */
+
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+
 /* Home Page */
 
 .home-screen {
@@ -19,17 +23,17 @@ body {
 .title {
   color: #fff;
   font-size: 100px;
-  font-family: 'Oswald', Times, serif;
+  font-family: 'Oswald', sans-serif;
   padding-top: 30px;
   letter-spacing: 10px;
   text-shadow: 3px 3px 20px #000;
 }
 
 .leaderboard {
-  width: 18%;
+  width: 20%;
   position: fixed;
-  top: 50px;
-  right: 50px;
+  top: 15px;
+  right: 15px;
   border-radius: 10px;
   box-shadow: 3px 3px 20px #000;
   background-color: #74edaf;
@@ -41,6 +45,7 @@ body {
 
 .leaderboard td, th {
   padding: 10px;
+  text-align: center;
 }
 
 .leaderboard h4 {
@@ -51,7 +56,7 @@ body {
 .play-form {
   width: 30%;
   padding: 30px;
-  margin: 200px auto 100px;
+  margin: 0 auto 30px;
   text-align: center;
   border-radius: 10px;
   box-shadow: 3px 3px 20px #000;
@@ -60,6 +65,7 @@ body {
 
 .home-screen .play-form {
   width: 20%;
+  margin-top: 100px;
 }
 
 .play-form input[type=text] {
@@ -76,7 +82,7 @@ body {
 .play-form .shuffled {
   padding: 10px 0 25px;
   letter-spacing: 10px;
-  font-family: 'Oswald', Times, serif;
+  font-family: 'Oswald', sans-serif;
   text-transform: uppercase;
 }
 
@@ -103,29 +109,25 @@ body {
 }
 
 .game-screen .play-form {
-  margin-top: 130px;
+  margin-top: 40px;
 }
 
 
 /* Media Queries */
 
-@media (max-width: 768px) {
-  .play-form,
-  .home-screen .play-form {
-    width: 90%;
-    margin-top: 100px;
-  }
+@media (max-width: 992px) {
   .title {
     font-size: 70px;
   }
-  .home-screen .leaderboard {
-    width: 60%;
-    top: auto;
-    right: auto;
-    bottom: 10px;
-    left: 80px;
-  }
-  .game-screen .leaderboard {
+}
+
+@media (max-width: 768px) {
+  .game-screen .play-form,
+  .home-screen .play-form {
+    width: 90%;
+/*    margin-top: 100px;
+*/  }
+  .leaderboard {
     display: none;
   }
 }
@@ -133,6 +135,11 @@ body {
 /* General */
 
 .flash {
+  color: transparent;
+  margin-top: 40px;
+}
+
+.flashColor {
   color: #fff;
 }
 

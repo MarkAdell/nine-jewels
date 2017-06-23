@@ -3,8 +3,10 @@ angular.module('nineJewelsApp')
 
     var vm = this;
 
-    var loadedWord;
+    vm.flashVisible = false;
+    vm.status = 'default';
 
+    var loadedWord;
     var userId = userService.getIdFromLocal();
 
     getRandomWord();
@@ -85,9 +87,10 @@ angular.module('nineJewelsApp')
     }
 
     function flash(message) {
+      vm.flashVisible = true;
       vm.status = message;
       $timeout(function() {
-        vm.status = '';
+        vm.flashVisible = false;
       }, 1500);
     }
 
