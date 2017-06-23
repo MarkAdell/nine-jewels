@@ -1,6 +1,6 @@
 <section class="home-screen"> 
 
-  <h1 class="title">NINE JEWELS</h1>
+  <h1 class="title" ng-click="vm.titleClick()">NINE JEWELS</h1>
 
   <div class="leaderboard">
     <h4>Leaderboard</h4>
@@ -20,6 +20,10 @@
         </tr>
       </tbody>
     </table>
+  </div>
+
+  <div class="description">
+    <p>Given an English nine shuffled letters word, try to re-order them.</p>
   </div>
     
   <form ng-submit="vm.startGame()" class="play-form">

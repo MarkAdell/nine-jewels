@@ -16,12 +16,14 @@ body {
 
 /* Home Page */
 
-.home-screen {
+.home-screen{
   text-align: center;
 }
 
 .title {
   color: #fff;
+  cursor: pointer;
+  display: inline-block;
   font-size: 100px;
   font-family: 'Oswald', sans-serif;
   padding-top: 30px;
@@ -54,7 +56,6 @@ body {
 }
 
 .play-form {
-  width: 30%;
   padding: 30px;
   margin: 0 auto 30px;
   text-align: center;
@@ -64,8 +65,8 @@ body {
 }
 
 .home-screen .play-form {
-  width: 20%;
-  margin-top: 100px;
+  width: 280px;
+  margin-top: 70px;
 }
 
 .play-form input[type=text] {
@@ -101,14 +102,8 @@ body {
   text-align: center;
 }
 
-.game-screen .description h3 {
-  text-align: center;
-  padding-top: 50px;
-  color: #fff;
-  font-size: 30px;
-}
-
 .game-screen .play-form {
+  width: 350px;
   margin-top: 40px;
 }
 
@@ -117,7 +112,7 @@ body {
 
 @media (max-width: 992px) {
   .title {
-    font-size: 70px;
+    font-size: 50px;
   }
 }
 
@@ -125,14 +120,20 @@ body {
   .game-screen .play-form,
   .home-screen .play-form {
     width: 90%;
-/*    margin-top: 100px;
-*/  }
+  }
   .leaderboard {
     display: none;
   }
 }
 
 /* General */
+
+.description {
+  margin-top: 50px;
+  color: #fff;
+  font-size: 30px;
+  padding: 0 20px;
+}
 
 .flash {
   color: transparent;

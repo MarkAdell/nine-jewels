@@ -48,6 +48,10 @@ angular.module('nineJewelsApp')
       getRandomWord();
     }
 
+    vm.titleClick = function() {
+      $state.go('home');
+    }
+
     function getRandomWord() {
       vm.userAnswer = '';
       gameService.getRandomWord()

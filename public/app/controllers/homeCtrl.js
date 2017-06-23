@@ -19,6 +19,10 @@ angular.module('nineJewelsApp')
       }
     }
 
+    vm.titleClick = function() {
+      $state.go('home');
+    }
+
     function getUserName() {
       userService.getUserName(userId)
         .then(function(res) { 
