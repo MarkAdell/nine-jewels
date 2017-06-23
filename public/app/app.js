@@ -2,7 +2,7 @@ angular
   .module('nineJewelsApp', [
     'ui.router'
   ])
-  .run(function($rootScope, $state, $stateParams) {
+  .run(function($rootScope, $state, $stateParams, $location) {
     $rootScope.$state = $state;
     $rootScope.$stateParams = $stateParams;
     $rootScope.$on('$locationChangeStart', function() {
