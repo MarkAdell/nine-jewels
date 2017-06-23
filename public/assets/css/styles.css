@@ -14,10 +14,32 @@ body {
 
 @import url('https://fonts.googleapis.com/css?family=Oswald');
 
+/* General */
+
+.description {
+  margin: 0 auto;
+  color: #fff;
+  font-size: 30px;
+  width: 60%;
+}
+
+.flash {
+  color: transparent;
+  margin-top: 40px;
+}
+
+.flashColor {
+  color: #fff;
+}
+
 /* Home Page */
 
-.home-screen{
+.home-screen {
   text-align: center;
+}
+
+.home-screen .description {
+  margin-top: 115px;
 }
 
 .title {
@@ -102,6 +124,10 @@ body {
   text-align: center;
 }
 
+.game-screen .description {
+  margin-top: 70px;
+}
+
 .game-screen .play-form {
   width: 350px;
   margin-top: 40px;
@@ -117,6 +143,12 @@ body {
 }
 
 @media (max-width: 768px) {
+  .home-screen .description {
+    margin-top: 50px;
+  }
+  .description {
+    width: 95%;
+  }
   .game-screen .play-form,
   .home-screen .play-form {
     width: 90%;
@@ -126,32 +158,15 @@ body {
   }
 }
 
-/* General */
-
-.description {
-  margin-top: 50px;
-  color: #fff;
-  font-size: 30px;
-  padding: 0 20px;
-}
-
-.flash {
-  color: transparent;
-  margin-top: 40px;
-}
-
-.flashColor {
-  color: #fff;
-}
-
-
 /* Invalid Page */
 
 .invalid-wrapper h2 {
   margin-top: 80px;
+  color: #fff;
 }
 
 .invalid-wrapper h3,
 .invalid-wrapper h4 {
+  color: #fff;
   margin-top: 50px;
 }
