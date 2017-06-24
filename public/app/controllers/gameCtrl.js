@@ -5,8 +5,10 @@ angular.module('nineJewelsApp')
 
     vm.flashVisible = false;
     vm.status = 'default';
+    vm.hintCount = 0;
 
     var loadedWord;
+    var hintUsed = false;
     var userId = userService.getIdFromLocal();
 
     getRandomWord();
@@ -16,6 +18,33 @@ angular.module('nineJewelsApp')
       var userAnswer = vm.userAnswer;
       var wordId = loadedWord.id;
       checkSolution(userAnswer, wordId);
+    }
+
+    vm.getAnotherWord = function() {
+      hintUsed = false;
+      getRandomWord();
+    }
+
+    vm.showHint = function() {
+      var wordId = loadedWord.id;
+      getAndShowHint(wordId);
+      hintUsed = true;
+    }
+
+    vm.titleClick = function() {
+      $state.go('home');
+    }
+
+    function getAndShowHint(wordId) {
+      gameService.getHint(wordId)
+        .then(function(res) {
+          if(res.data.success) {
+            var hint = res.data.hint.toLowerCase();
+            vm.userAnswer = hint;
+          } else {
+            console.log(res.data.error);
+          }
+        })
     }
 
     function checkSolution(userAnswer, wordId) {
@@ -35,21 +64,23 @@ angular.module('nineJewelsApp')
 
     function handleCorrectSolution() {
       flash('Correct!');
-      updateUserScore(userId);
+      if(hintUsed) {
+        vm.hintCount++;
+        hintUsed = false;
+        if(vm.hintCount === 3) {
+          updateUserScore(userId);
+          getScoreBoard();
+          vm.hintCount = 0;
+        }
+      } else {
+        updateUserScore(userId);
+        getScoreBoard();
+      }
       getRandomWord();
-      getScoreBoard();
     }
 
     function handleWrongSolution() {
       flash('Wrong!');
-    }
-
-    vm.getAnotherWord = function() {
-      getRandomWord();
-    }
-
-    vm.titleClick = function() {
-      $state.go('home');
     }
 
     function getRandomWord() {

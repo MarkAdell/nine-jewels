@@ -13,10 +13,15 @@ angular.module('nineJewelsApp')
       return $http.get('api/words/check?answer='+userAnswer+'&id='+wordId);
     }
 
+    function getHint(wordId) {
+      return $http.get('api/words/hint?id='+wordId);
+    }
+
     return {
       getScoreBoard: getScoreBoard,
       getRandomWord: getRandomWord,
-      checkSolution: checkSolution
+      checkSolution: checkSolution,
+      getHint: getHint
     }
     
   });

@@ -24,6 +24,7 @@
 
   <div class="description">
     <p>Order the nine shuffled letters word.</p>
+    <p>Note that you get one score point for every three words you solve using a hint.</p>
   </div>
 
   <h3 class="flash" ng-class="{'flashColor': vm.flashVisible}">{{vm.status}}</h3>
@@ -32,7 +33,9 @@
     <h1 class="shuffled">{{vm.shuffledWord}}</h1>
     <input type="text" ng-model="vm.userAnswer" placeholder="answer" maxlength="9">
     <button ng-click="vm.submitWord()" type="submit" class="my-button">Submit</button>
+    <button ng-click="vm.showHint()" type="submit" class="my-button">Hint</button>
     <button ng-click="vm.getAnotherWord()" type="submit" class="my-button">Another Word</button>
+    <p class="hint">Hint Usage: {{vm.hintCount}}</p>
   </form>
 
 </section>

@@ -29,6 +29,20 @@ function checkSolution(req, res) {
   });
 }
 
+function getHint(req, res) {
+  var wordId = req.query.id;
+  var query = {_id: wordId};
+  Words.findOne(query, function(err, word) {
+    if(err) {
+      res.json({success: false, message: err});
+    } else {
+      var word = word.toObject();
+      var hint = word.unshuffledWord.slice(0, 2);
+      res.json({success: true, hint: hint});
+    }
+  });
+}
+
 function getRandonWord(words) {
   var length = words.length;
   var randomIndex = Math.floor(Math.random() * length);
@@ -43,5 +57,6 @@ function getRandonWord(words) {
 
 module.exports = {
   getWord: getWord,
-  checkSolution: checkSolution
+  checkSolution: checkSolution,
+  getHint: getHint
 }

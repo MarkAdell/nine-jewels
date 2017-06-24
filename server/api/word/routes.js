@@ -7,4 +7,7 @@ Router.route('/')
 Router.route('/check')
   .get(controller.checkSolution);
 
+Router.route('/hint')
+  .get(controller.getHint);
+
 module.exports = Router;
