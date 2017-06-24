@@ -5,7 +5,7 @@ function getWord(req, res) {
     if(err) {
       res.json({success: false, message: err});
     } else {
-      var randomWord = getRandonWord(words);
+      var randomWord = getRandomWord(words);
       res.json({success: true, word: randomWord});
     }
   });
@@ -43,17 +43,29 @@ function getHint(req, res) {
   });
 }
 
-function getRandonWord(words) {
+function getRandomWord(words) {
   var length = words.length;
   var randomIndex = Math.floor(Math.random() * length);
   var randomWord = words[randomIndex];
+  var shuffledRandomWord = shuffleWord(randomWord.unshuffledWord);
   var returnedWord = {
     id: randomWord._id,
-    shuffledWord: randomWord.shuffledWord
+    shuffledWord: shuffledRandomWord
   }
   return returnedWord;
 }
 
+function shuffleWord(word) {
+  var arr = word.split('');
+  var j, x, i;
+  for (i = arr.length; i > 0; i--) {
+    j = Math.floor(Math.random() * i);
+    tmp = arr[i - 1];
+    arr[i - 1] = arr[j];
+    arr[j] = tmp;
+  }
+  return arr.join('');
+}
 
 module.exports = {
   getWord: getWord,

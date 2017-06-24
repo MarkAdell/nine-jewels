@@ -19,7 +19,7 @@ body {
 .description {
   margin: 0 auto;
   color: #fff;
-  font-size: 30px;
+  font-size: 25px;
   width: 60%;
 }
 
@@ -54,6 +54,7 @@ body {
 }
 
 .leaderboard {
+  z-index: -1;
   width: 16%;
   position: fixed;
   top: 15px;
@@ -130,7 +131,12 @@ body {
 
 .game-screen .play-form {
   width: 350px;
+  padding-top: 20px;
   margin-top: 40px;
+}
+
+.game-screen .my-button {
+  margin: 10px 15px 0 0;
 }
 
 .hint {
@@ -138,15 +144,17 @@ body {
   font-size: 20px;
 }
 
-
 /* Media Queries */
+
+@media (max-width: 1200px) {
+  .leaderboard {
+    width: 22%;
+  }
+}
 
 @media (max-width: 992px) {
   .title {
     font-size: 50px;
-  }
-  .leaderboard {
-    width: 20%;
   }
 }
 
