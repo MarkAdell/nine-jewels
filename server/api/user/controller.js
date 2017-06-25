@@ -58,7 +58,7 @@ function updateUserName(req, res) {
       } else if(!user) {
         res.json({ success: false, found: false});
       } else {
-        res.json({ success: true, user: user });
+        res.json({ success: true, found: true, user: user });
       }
     });
 }
