@@ -16,6 +16,11 @@ body {
 
 /* General */
 
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent; 
+}
+
 .description {
   margin: 0 auto;
   color: #fff;
@@ -54,7 +59,8 @@ body {
 }
 
 .leaderboard {
-  z-index: -1;
+  max-height: 305px;
+  overflow: auto;
   width: 16%;
   position: fixed;
   top: 15px;
