@@ -22,7 +22,7 @@ gulp.task('css', function (cb) {
         gulp.src('public/assets/css/styles.css'),
         cleanCSS({compatibility: 'ie8'}),
         rename({ suffix: '.min' }),
-        gulp.dest('public/assets/css')
+        gulp.dest('public/dist')
     ],
     cb
   );
