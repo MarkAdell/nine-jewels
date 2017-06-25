@@ -42,4 +42,4 @@ angular
     $locationProvider.html5Mode(true);
 
     $urlRouterProvider.otherwise('/invalid');
-  })
+  });

@@ -14,7 +14,7 @@ angular.module('nineJewelsApp')
     }
 
     function updateUserName(userName, userId) {
-      return $http.put('/api/users/', {userName: userName, userId, userId})
+      return $http.put('/api/users/', {userName: userName, userId: userId})
     }
 
     function updateUserScore(userId) {

@@ -22,7 +22,15 @@
     "compression": "^1.6.2",
     "cors": "^2.8.3",
     "express": "^4.15.3",
+    "gulp": "^3.9.1",
     "mongoose": "^4.10.5",
     "morgan": "^1.8.2"
+  },
+  "devDependencies": {
+    "gulp-clean-css": "^3.4.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^3.0.0",
+    "pump": "^1.0.2"
   }
 }
