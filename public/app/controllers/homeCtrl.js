@@ -65,10 +65,15 @@ angular.module('nineJewelsApp')
     function updateUserNameAndProceed() {
       userService.updateUserName(vm.username, userId)
         .then(function(res) {
-          if(res.data.success) {
-            $state.go('game');
+          console.log(res);
+          if(!res.data.found) {
+            addUserAndProceed();
           } else {
-            console.log(res.data.message);
+            if(res.data.success) {
+              $state.go('game');
+            } else {
+              console.log(res.data.message);
+            }
           }
         });
     }

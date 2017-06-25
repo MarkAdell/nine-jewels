@@ -55,6 +55,8 @@ function updateUserName(req, res) {
     .exec(function(err, user) {
       if (err) {
         res.json({ success: false, message: err });
+      } else if(!user) {
+        res.json({ success: false, found: false});
       } else {
         res.json({ success: true, user: user });
       }
