@@ -80,7 +80,7 @@ body {
 }
 
 .leaderboard::-webkit-scrollbar-thumb {
-	background-color: #59e09a;
+	background-color: #4ed891;
 }
 
 .leaderboard table {
@@ -169,11 +169,17 @@ body {
   .leaderboard {
     width: 22%;
   }
+  .title {
+    font-size: 70px;
+  }
 }
 
 @media (max-width: 992px) {
   .title {
     font-size: 50px;
+  }
+  .leaderboard {
+    width: 24%;
   }
 }
 
