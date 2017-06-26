@@ -197,6 +197,7 @@ body {
   .leaderboard {
     position: static;
     min-width: 65%;
+    border-radius: 10px;
     margin: 0 auto 30px;
   }
 }
