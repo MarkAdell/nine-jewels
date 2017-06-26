@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var User = require('./model');
 
 function constructLeaderBoard(req, res) {
-  User.find({})
+  User.find({}, {_id: 0})
     .where('solvedJewels').gt(0)
     .sort({ solvedJewels: -1 })
     .exec(function(err, users) {
