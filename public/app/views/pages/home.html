@@ -2,6 +2,17 @@
 
   <h1 class="title" ng-click="vm.titleClick()">NINE JEWELS</h1>
 
+  <div class="description">
+    <p>Given a nine shuffled letters, try to re-order them to form a correct English word.</p>
+    <p>Note that you get one score point for every three words you solve using a hint.</p>
+  </div>
+    
+  <form ng-submit="vm.startGame()" class="play-form">
+    <input type="text" ng-model="vm.username" placeholder="username" maxlength="10">
+    <button type="submit" class="my-button">Play</button>
+  </form>
+
+  
   <div class="leaderboard">
     <h4>Leaderboard</h4>
     <table>
@@ -21,16 +32,6 @@
       </tbody>
     </table>
   </div>
-
-  <div class="description">
-    <p>Given a nine shuffled letters, try to re-order them to form a correct English word.</p>
-    <p>Note that you get one score point for every three words you solve using a hint.</p>
-  </div>
-    
-  <form ng-submit="vm.startGame()" class="play-form">
-    <input type="text" ng-model="vm.username" placeholder="username" maxlength="10">
-    <button type="submit" class="my-button">Play</button>
-  </form>
 
 </section>
 

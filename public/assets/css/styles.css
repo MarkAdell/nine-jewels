@@ -195,7 +195,9 @@ body {
     width: 90%;
   }
   .leaderboard {
-    display: none;
+    position: static;
+    min-width: 65%;
+    margin: 0 auto 30px;
   }
 }
 
