@@ -5,7 +5,7 @@ var morgan = require('morgan');
 var compression = require('compression')
 
 module.exports = function(app) {
-  app.use(cors());
+  // app.use(cors());
   app.use(compression());
   app.use(morgan(':method :url - :response-time ms'));
   app.use(bodyParser.json());
